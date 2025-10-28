@@ -8,14 +8,14 @@ export default function Home() {
   const [report, setReport] = useState(null);
 
   const handleUpload = async () => {
-    await fetch('/api/upload', { method: 'POST' });
-    const analyzeRes = await fetch('/api/analyze');
+    await fetch('/api/upload.json'); // Simulate upload
+    const analyzeRes = await fetch('/api/analyze.json');
     const analyzeData = await analyzeRes.json();
     setAnalysis(analyzeData);
-    const validateRes = await fetch('/api/validate');
+    const validateRes = await fetch('/api/validate.json');
     const validateData = await validateRes.json();
     setValidation(validateData);
-    const reportRes = await fetch('/api/report');
+    const reportRes = await fetch('/api/report.json');
     const reportData = await reportRes.json();
     setReport(reportData);
   };
